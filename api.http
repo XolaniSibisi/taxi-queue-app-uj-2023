@@ -2,6 +2,10 @@ GET http://localhost:4015/api/passenger/queue
 
 ###
 
+GET http://localhost:4015/api/taxi/queue
+
+###
+
 POST http://localhost:4015/api/passenger/join
 Content-Type: application/json
 

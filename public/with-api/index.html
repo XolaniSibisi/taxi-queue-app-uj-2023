@@ -26,8 +26,8 @@
 			<img src="../images/queue.png" alt="" width="100">
 			<img src="../images/queue.png" alt="" width="100">
 			<span class="passenger_queue_count count" x-text='queueLength' >0</span>
-			<button class="join_queue">Join</button>
-			<button class="leave_queue">Leave</button>
+			<button class="join_queue" @click="joinQueue()">Join</button>
+			<button class="leave_queue" @click="leaveQueue()">Leave</button>
 	
 		</div>
 	
@@ -36,8 +36,8 @@
 			<img src="../images/minivan.png" alt="" width="100">
 			<img src="../images/minivan.png" alt="" width="100">
 			<img src="../images/minivan.png" alt="" width="100">
-			<span class="taxi_queue_count count" >0</span>
-			<button class="join_taxi_queue">Join queue</button>
+			<span class="taxi_queue_count count" x-text="taxiQueueLength">0</span>
+			<button class="join_taxi_queue" @click="joinTaxiQueue()">Join queue</button>
 		</div>
 	
 		<div class="section" >
@@ -47,7 +47,7 @@
 			<img src="../images/arrow.png" alt="" width="100">
 			<img src="../images/minivan.png" alt="" width="100">
 			<!-- <span class="taxi_queue_count count" >0</span> -->
-			<button class="depart">Depart</button>
+			<button class="depart" @click="taxiDepart()">Depart</button>
 		</div>
 	
 

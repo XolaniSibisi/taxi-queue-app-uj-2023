@@ -15,10 +15,11 @@ const PORT = process.env.PORT || 4015;
 // passenger joins the queue
 app.post('/api/passenger/join', async(req, res) => {
 
-    await joinQueue()
+    const sql = await joinQueue()
 
     res.json({
         message : 'joined queue',
+        sql
 
     });
 })
@@ -26,29 +27,32 @@ app.post('/api/passenger/join', async(req, res) => {
 // passenger leaves the queue
 app.post('/api/passenger/leave', async(req, res) => {
 
-    await leaveQueue()
+    const sql = await leaveQueue()
 
     res.json({
-        message : 'leave queue'
+        message : 'leave queue',
+        sql
     })
 });
 
 app.post('/api/taxi/join', async(req, res) => {
 
-    await joinTaxiQueue()
+    const sql = await joinTaxiQueue()
     
     res.json({
-        message : 'leave queue'
+        message : 'leave queue',
+        sql
     })
 });
 
 // Note there needs to be at least 12 people in the queue for the taxi to depart
 app.post('/api/taxi/depart', async(req, res) => {
 
-    await taxiDepart()
+    const sql = await taxiDepart()
 
     res.json({
-        message : 'taxi depart from queue'
+        message : 'taxi depart from queue',
+        sql
     })
 });
 
@@ -56,18 +60,21 @@ app.post('/api/taxi/depart', async(req, res) => {
 app.get('/api/passenger/queue', async(req, res) => {
     //  return test the API call
 
-    const count = await queueLength()
+    const sql = await queueLength()
 
 
     res.json({
-        count
+        queueCount : sql
     })
 });
 
 // return the number of taxis in the queue
-app.get('/api/taxi/queue', (req, res) => {
+app.get('/api/taxi/queue', async(req, res) => {
+
+    const sql = await taxiQueueLength()
+
     res.json({
-        queueCount : 0
+        queueCount: sql
     })
 });
 
