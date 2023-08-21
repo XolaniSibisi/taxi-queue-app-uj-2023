@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 
-	<script src="//unpkg.com/alpinejs" defer></script>
+	<script src="https://unpkg.com/alpinejs" defer></script>
 	<script src="taxi-queue.no-api.js"></script>
 	<link rel="stylesheet" href="../style.css">
 
@@ -25,9 +25,9 @@
 			<img src="../images/queue.png" alt="" width="100">
 			<img src="../images/queue.png" alt="" width="100">
 			<img src="../images/queue.png" alt="" width="100">
-			<span class="passenger_queue_count count" >0</span>
-			<button class="join_queue">Join</button>
-			<button class="leave_queue">Leave</button>
+			<span class="passenger_queue_count count" x-text="queueCount">0</span>
+			<button class="join_queue" x-on:click="joinQueue()">Join</button>
+			<button class="leave_queue" x-on:click="leaveQueue()">Leave</button>
 	
 		</div>
 	
@@ -36,8 +36,8 @@
 			<img src="../images/minivan.png" alt="" width="100">
 			<img src="../images/minivan.png" alt="" width="100">
 			<img src="../images/minivan.png" alt="" width="100">
-			<span class="taxi_queue_count count" >0</span>
-			<button class="join_taxi_queue">Join queue</button>
+			<span class="taxi_queue_count count" x-text="taxiQueue" >0</span>
+			<button class="join_taxi_queue" x-on:click="joinTaxiQueue()">Join queue</button>
 		</div>
 	
 		<div class="section" >
@@ -47,7 +47,7 @@
 			<img src="../images/arrow.png" alt="" width="100">
 			<img src="../images/minivan.png" alt="" width="100">
 			<!-- <span class="taxi_queue_count count" >0</span> -->
-			<button class="depart">Depart</button>
+			<button class="depart" x-on:click="taxiDepart()">Depart</button>
 		</div>
 	
 
