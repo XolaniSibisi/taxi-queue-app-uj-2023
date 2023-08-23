@@ -1,12 +1,12 @@
-GET https://taxi-queue-app-udu0.onrender.com/api/passenger/queue
+GET http://localhost:4015/api/passenger/queue
 
 ###
 
-GET https://taxi-queue-app-udu0.onrender.com/api/taxi/queue
+GET http://localhost:4015/api/taxi/queue
 
 ###
 
-POST https://taxi-queue-app-udu0.onrender.com/api/passenger/join
+POST http://localhost:4015/api/passenger/join
 Content-Type: application/json
 
 {
@@ -15,7 +15,7 @@ Content-Type: application/json
 
 ###
 
-POST https://taxi-queue-app-udu0.onrender.com/api/passenger/leave
+POST http://localhost:4015/api/passenger/leave
 Content-Type: application/json
 
 {
@@ -24,7 +24,7 @@ Content-Type: application/json
 
 ###
 
-POST https://taxi-queue-app-udu0.onrender.com/api/taxi/join
+POST http://localhost:4015/api/taxi/join
 Content-Type: application/json
 
 {
@@ -33,7 +33,7 @@ Content-Type: application/json
 
 ###
 
-POST https://taxi-queue-app-udu0.onrender.com/api/taxi/depart
+POST http://localhost:4015/api/taxi/depart
 Content-Type: application/json
 
 {

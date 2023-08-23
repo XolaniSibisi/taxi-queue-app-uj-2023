@@ -48,7 +48,7 @@ app.post('/api/taxi/join', async(req, res) => {
 // Note there needs to be at least 12 people in the queue for the taxi to depart
 app.post('/api/taxi/depart', async(req, res) => {
 
-    const sql = await taxiDepart()
+    const sql = await taxiDepart();
 
     res.json({
         message : 'taxi depart from queue',
@@ -60,11 +60,10 @@ app.post('/api/taxi/depart', async(req, res) => {
 app.get('/api/passenger/queue', async(req, res) => {
     //  return test the API call
 
-    const sql = await queueLength()
-
+    const sql = await queueLength();
 
     res.json({
-        queueCount : sql
+        sql
     })
 });
 
@@ -74,7 +73,7 @@ app.get('/api/taxi/queue', async(req, res) => {
     const sql = await taxiQueueLength()
 
     res.json({
-        queueCount: sql
+        sql
     })
 });
 

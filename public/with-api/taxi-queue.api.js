@@ -9,13 +9,13 @@ document.addEventListener('alpine:init', () => {
 
 			init() {
 				
-				axios.get('https://taxi-queue-app-udu0.onrender.com/api/passenger/queue')
+				axios.get('/api/passenger/queue')
 					.then(result => {
 						// an example API call
 						this.queueLength = result.data.queueCount.passenger_queue_count;
 					});
 
-				axios.get('https://taxi-queue-app-udu0.onrender.com/api/taxi/queue')
+				axios.get('/api/taxi/queue')
 				    .then((result)=>{
 			     	 	this.taxiQueueLength = result.data.queueCount.taxi_queue_count;
 				    });
@@ -23,7 +23,7 @@ document.addEventListener('alpine:init', () => {
 
 			joinQueue() {
 
-				axios.post('https://taxi-queue-app-udu0.onrender.com/api/passenger/join')
+				axios.post('/api/passenger/join')
                     .then(result => {
 
                         this.queueLength = result.data.sql.passenger_queue_count;
@@ -33,7 +33,7 @@ document.addEventListener('alpine:init', () => {
 			},
 			leaveQueue() {
 
-				axios.post('https://taxi-queue-app-udu0.onrender.com/api/passenger/leave')
+				axios.post('/api/passenger/leave')
                     .then(result => {
 
                         this.queueLength = result.data.sql.passenger_queue_count;
@@ -44,7 +44,7 @@ document.addEventListener('alpine:init', () => {
 
 			joinTaxiQueue() {
 
-				axios.post('https://taxi-queue-app-udu0.onrender.com/api/taxi/join')
+				axios.post('/api/taxi/join')
                     .then(result => {
                         console.log(result.data)
 
@@ -57,7 +57,7 @@ document.addEventListener('alpine:init', () => {
 			taxiDepart() {
 
 				if (this.queueLength >= 12 && this.taxiQueueLength > 0) {
-                    axios.post('https://taxi-queue-app-udu0.onrender.com/api/taxi/depart')
+                    axios.post('/api/taxi/depart')
                         .then((result) => {
 
 							this.taxiQueueLength = result.data.sql.taxi_queue_count;
